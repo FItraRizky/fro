@@ -23,6 +23,9 @@ export interface Product {
   isFeatured?: boolean;
   isNew?: boolean;
   isBestseller?: boolean;
+  weight?: string;
+  dimensions?: string;
+  material?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -140,6 +143,7 @@ export interface Review {
   images?: string[];
   verified: boolean;
   helpful: number;
+  helpfulCount?: number;
   createdAt: Date;
 }
 
@@ -210,10 +214,12 @@ export interface AppState {
 
 export interface FilterOptions {
   category?: string;
-  priceRange?: [number, number];
+  categories?: string[];
+  priceRange?: { min: number; max: number };
   rating?: number;
   brand?: string[];
   inStock?: boolean;
+  onSale?: boolean;
   sortBy?: 'name' | 'price' | 'rating' | 'newest' | 'bestseller';
   sortOrder?: 'asc' | 'desc';
 }

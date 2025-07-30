@@ -398,7 +398,7 @@ const Account: React.FC = () => {
                         </div>
                         <div className="item-info">
                           <h3>{item.name}</h3>
-                          <div className="item-price">{formatPrice(item.price)}</div>
+                          <div className="item-price">{formatPrice(item.price || 0)}</div>
                           <div className="item-actions">
                             <button className="btn btn-primary">Tambah ke Keranjang</button>
                             <button 

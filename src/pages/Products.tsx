@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import { Filter, Grid, List, ChevronDown, X, Search, SlidersHorizontal } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { Grid, List, ChevronDown, X, Search, SlidersHorizontal } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { mockProducts, mockCategories } from '../data/mockData';
 import * as Types from '../types/index';
 
-type Product = Types.Product;
 type FilterOptions = Types.FilterOptions;
 import ProductCard from '../components/Product/ProductCard';
 import './Products.css';

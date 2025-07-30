@@ -33,6 +33,7 @@ type AppAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'LOAD_CART'; payload: CartItem[] }
+  | { type: 'LOGOUT' }
   | { type: 'LOAD_WISHLIST'; payload: WishlistItem[] };
 
 const initialState: AppState = {
