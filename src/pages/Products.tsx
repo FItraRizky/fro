@@ -66,23 +66,25 @@ const Products: React.FC = () => {
     }
 
     // Category filter
-    if (filters.categories.length > 0) {
+    if (filters.categories && filters.categories.length > 0) {
       filtered = filtered.filter(product =>
-        filters.categories.some(cat => 
+        filters.categories!.some(cat => 
           product.category.toLowerCase().includes(cat.toLowerCase())
         )
       );
     }
 
     // Price range filter
-    filtered = filtered.filter(product =>
-      product.price >= filters.priceRange.min &&
-      product.price <= filters.priceRange.max
-    );
+    if (filters.priceRange) {
+      filtered = filtered.filter(product =>
+        product.price >= filters.priceRange!.min &&
+        product.price <= filters.priceRange!.max
+      );
+    }
 
     // Rating filter
-    if (filters.rating > 0) {
-      filtered = filtered.filter(product => product.rating >= filters.rating);
+    if (filters.rating && filters.rating > 0) {
+      filtered = filtered.filter(product => product.rating >= filters.rating!);
     }
 
     // Stock filter
@@ -132,9 +134,10 @@ const Products: React.FC = () => {
   };
 
   const handleCategoryToggle = (category: string) => {
-    const newCategories = filters.categories.includes(category)
-      ? filters.categories.filter(c => c !== category)
-      : [...filters.categories, category];
+    const currentCategories = filters.categories || [];
+    const newCategories = currentCategories.includes(category)
+      ? currentCategories.filter(c => c !== category)
+      : [...currentCategories, category];
     
     handleFilterChange({ categories: newCategories });
   };
@@ -236,11 +239,11 @@ const Products: React.FC = () => {
                   <input
                     type="number"
                     placeholder="Min"
-                    value={filters.priceRange.min || ''}
+                    value={filters.priceRange?.min || ''}
                     onChange={(e) => handleFilterChange({
                       priceRange: {
-                        ...filters.priceRange,
-                        min: Number(e.target.value) || 0
+                        min: Number(e.target.value) || 0,
+                        max: filters.priceRange?.max || 10000000
                       }
                     })}
                   />
@@ -248,10 +251,10 @@ const Products: React.FC = () => {
                   <input
                     type="number"
                     placeholder="Max"
-                    value={filters.priceRange.max === 10000000 ? '' : filters.priceRange.max}
+                    value={filters.priceRange?.max === 10000000 ? '' : filters.priceRange?.max || ''}
                     onChange={(e) => handleFilterChange({
                       priceRange: {
-                        ...filters.priceRange,
+                        min: filters.priceRange?.min || 0,
                         max: Number(e.target.value) || 10000000
                       }
                     })}
@@ -401,7 +404,7 @@ const Products: React.FC = () => {
             </div>
 
             {/* Active Filters */}
-            {(filters.categories.length > 0 || filters.onSale || filters.inStock || searchQuery) && (
+            {((filters.categories && filters.categories.length > 0) || filters.onSale || filters.inStock || searchQuery) && (
               <div className="active-filters">
                 <span className="active-filters-label">Filter aktif:</span>
                 
@@ -414,7 +417,7 @@ const Products: React.FC = () => {
                   </span>
                 )}
                 
-                {filters.categories.map(category => (
+                {filters.categories && filters.categories.map(category => (
                   <span key={category} className="active-filter">
                     {mockCategories.find(c => c.slug === category)?.name || category}
                     <button onClick={() => handleCategoryToggle(category)}>
