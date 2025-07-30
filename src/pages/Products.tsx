@@ -218,7 +218,7 @@ const Products: React.FC = () => {
                   <label key={category.id} className="filter-option">
                     <input
                       type="checkbox"
-                      checked={filters.categories.includes(category.slug)}
+                      checked={filters.categories?.includes(category.slug) || false}
                       onChange={() => handleCategoryToggle(category.slug)}
                     />
                     <span className="checkmark"></span>
