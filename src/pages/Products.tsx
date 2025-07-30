@@ -88,7 +88,7 @@ const Products: React.FC = () => {
 
     // Stock filter
     if (filters.inStock) {
-      filtered = filtered.filter(product => product.stock > 0);
+      filtered = filtered.filter(product => product.inStock);
     }
 
     // Sale filter

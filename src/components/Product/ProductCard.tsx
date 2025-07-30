@@ -137,7 +137,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 -{discountPercentage}%
               </motion.span>
             )}
-            {product.stock === 0 && (
+            {!product.inStock && (
               <motion.span 
                 className="badge badge-out-of-stock"
                 initial={{ scale: 0 }}
@@ -203,7 +203,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <motion.button
               className="btn btn-primary add-to-cart-btn"
               onClick={handleAddToCart}
-              disabled={product.stock === 0}
+              disabled={!product.inStock}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -214,7 +214,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               >
                 <ShoppingCart size={18} />
               </motion.div>
-              {product.stock === 0 ? 'Habis' : 'Tambah ke Keranjang'}
+              {!product.inStock ? 'Habis' : 'Tambah ke Keranjang'}
             </motion.button>
           </motion.div>
         </motion.div>
@@ -329,7 +329,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           )}
           
           {/* Stock Status */}
-          {product.stock <= 5 && product.stock > 0 && (
+          {product.stockQuantity <= 5 && product.inStock && (
             <motion.div 
               className="stock-warning"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -337,7 +337,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               transition={{ duration: 0.3, delay: 0.8 }}
               whileHover={{ scale: 1.05 }}
             >
-              Tersisa {product.stock} item
+              Tersisa {product.stockQuantity} item
             </motion.div>
           )}
         </motion.div>

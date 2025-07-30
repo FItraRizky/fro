@@ -27,7 +27,7 @@ interface ContactForm {
 }
 
 const Contact: React.FC = () => {
-  const { dispatch, showToast } = useApp();
+  const { showToast } = useApp();
   const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { 
   User, 
-  Mail, 
-  Phone, 
   MapPin, 
   Lock, 
   Heart, 
@@ -14,10 +12,7 @@ import {
   X,
   Eye,
   EyeOff,
-  Bell,
-  CreditCard,
-  Truck,
-  Star
+  Bell
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import './Account.css';

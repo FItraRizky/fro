@@ -3,14 +3,13 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   ShoppingCart, Heart, Star, Minus, Plus, Share2, 
   ChevronLeft, ChevronRight, Truck, Shield, RotateCcw,
-  MessageCircle, ThumbsUp, ChevronDown, Eye, Zap
+  MessageCircle, ThumbsUp, Eye, Zap
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { mockProducts, mockReviews } from '../data/mockData';
 import * as Types from '../types/index';
 
 type Product = Types.Product;
-type Review = Types.Review;
 import ProductCard from '../components/Product/ProductCard';
 import './ProductDetail.css';
 
@@ -296,18 +295,18 @@ const ProductDetail: React.FC = () => {
                   value={quantity}
                   onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                   min="1"
-                  max={product.stock}
+                  max={product.stockQuantity}
                 />
                 <button
                   className="quantity-btn"
-                  onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                  disabled={quantity >= product.stock}
+                  onClick={() => setQuantity(Math.min(product.stockQuantity, quantity + 1))}
+                  disabled={quantity >= product.stockQuantity}
                 >
                   <Plus size={16} />
                 </button>
               </div>
               <span className="stock-info">
-                {product.stock > 0 ? `${product.stock} tersedia` : 'Stok habis'}
+                {product.inStock ? `${product.stockQuantity} tersedia` : 'Stok habis'}
               </span>
             </div>
 
@@ -316,10 +315,10 @@ const ProductDetail: React.FC = () => {
               <button
                 className="btn btn-primary add-to-cart"
                 onClick={handleAddToCart}
-                disabled={product.stock === 0}
+                disabled={!product.inStock}
               >
                 <ShoppingCart size={20} />
-                {product.stock === 0 ? 'Stok Habis' : 'Tambah ke Keranjang'}
+                {!product.inStock ? 'Stok Habis' : 'Tambah ke Keranjang'}
               </button>
               
               <button

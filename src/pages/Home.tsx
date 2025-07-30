@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Star, ShoppingCart, Heart, ArrowRight, Truck, Shield, Headphones, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, ShoppingCart, ArrowRight, Truck, Shield, Headphones, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useApp } from '../context/AppContext';
 import { mockProducts, mockCategories, mockTestimonials, mockBlogPosts } from '../data/mockData';

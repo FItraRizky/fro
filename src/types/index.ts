@@ -13,6 +13,7 @@ export interface Product {
   brand: string;
   rating: number;
   reviewCount: number;
+  sold?: number;
   inStock: boolean;
   stockQuantity: number;
   variants?: ProductVariant[];
@@ -31,7 +32,8 @@ export interface ProductVariant {
   type: 'color' | 'size' | 'material';
   name: string;
   value: string;
-  price?: number;
+  color?: string;
+  price: number;
   image?: string;
   inStock: boolean;
 }
@@ -50,6 +52,9 @@ export interface WishlistItem {
   id: string;
   productId: string;
   product: Product;
+  image?: string;
+  name?: string;
+  price?: number;
   addedAt: Date;
 }
 

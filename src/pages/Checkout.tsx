@@ -5,8 +5,6 @@ import {
   Truck, 
   MapPin, 
   User, 
-  Mail, 
-  Phone, 
   Lock, 
   CheckCircle, 
   AlertCircle,
@@ -57,7 +55,7 @@ interface FormData {
 const Checkout: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { state, dispatch, showToast } = useApp();
+  const { dispatch, showToast } = useApp();
   
   const checkoutData = location.state as CheckoutData;
   

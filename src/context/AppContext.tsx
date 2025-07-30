@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react';
 import * as Types from '../types/index';
 
 type AppState = Types.AppState;
@@ -9,6 +9,7 @@ type Product = Types.Product;
 
 interface AppContextType {
   state: AppState;
+  dispatch: React.Dispatch<AppAction>;
   addToCart: (product: Product, quantity?: number, variants?: { [key: string]: string }) => void;
   removeFromCart: (itemId: string) => void;
   updateCartQuantity: (itemId: string, quantity: number) => void;
@@ -260,6 +261,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const value: AppContextType = {
     state,
+    dispatch,
     addToCart,
     removeFromCart,
     updateCartQuantity,
