@@ -30,11 +30,11 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 50,
     variants: [
-      { id: 'v1', type: 'color', name: 'Warna', value: 'Biru', inStock: true },
-      { id: 'v2', type: 'color', name: 'Warna', value: 'Putih', inStock: true },
-      { id: 'v3', type: 'size', name: 'Ukuran', value: 'M', inStock: true },
-      { id: 'v4', type: 'size', name: 'Ukuran', value: 'L', inStock: true },
-      { id: 'v5', type: 'size', name: 'Ukuran', value: 'XL', inStock: true }
+      { id: 'v1', type: 'color', name: 'Warna', value: 'Biru', price: 299000, inStock: true },
+      { id: 'v2', type: 'color', name: 'Warna', value: 'Putih', price: 299000, inStock: true },
+      { id: 'v3', type: 'size', name: 'Ukuran', value: 'M', price: 299000, inStock: true },
+      { id: 'v4', type: 'size', name: 'Ukuran', value: 'L', price: 309000, inStock: true },
+      { id: 'v5', type: 'size', name: 'Ukuran', value: 'XL', price: 319000, inStock: true }
     ],
     specifications: {
       'Bahan': 'Katun 100%',
@@ -68,11 +68,11 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 30,
     variants: [
-      { id: 'v6', type: 'color', name: 'Warna', value: 'Dark Blue', inStock: true },
-      { id: 'v7', type: 'color', name: 'Warna', value: 'Light Blue', inStock: true },
-      { id: 'v8', type: 'size', name: 'Ukuran', value: '30', inStock: true },
-      { id: 'v9', type: 'size', name: 'Ukuran', value: '32', inStock: true },
-      { id: 'v10', type: 'size', name: 'Ukuran', value: '34', inStock: true }
+      { id: 'v6', type: 'color', name: 'Warna', value: 'Dark Blue', price: 450000, inStock: true },
+      { id: 'v7', type: 'color', name: 'Warna', value: 'Light Blue', price: 450000, inStock: true },
+      { id: 'v8', type: 'size', name: 'Ukuran', value: '30', price: 450000, inStock: true },
+      { id: 'v9', type: 'size', name: 'Ukuran', value: '32', price: 450000, inStock: true },
+      { id: 'v10', type: 'size', name: 'Ukuran', value: '34', price: 450000, inStock: true }
     ],
     specifications: {
       'Bahan': 'Denim 98% Cotton, 2% Elastane',
@@ -104,11 +104,11 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 25,
     variants: [
-      { id: 'v11', type: 'color', name: 'Warna', value: 'Putih', inStock: true },
-      { id: 'v12', type: 'color', name: 'Warna', value: 'Hitam', inStock: true },
-      { id: 'v13', type: 'size', name: 'Ukuran', value: '40', inStock: true },
-      { id: 'v14', type: 'size', name: 'Ukuran', value: '41', inStock: true },
-      { id: 'v15', type: 'size', name: 'Ukuran', value: '42', inStock: true }
+      { id: 'v11', type: 'color', name: 'Warna', value: 'Putih', price: 850000, inStock: true },
+      { id: 'v12', type: 'color', name: 'Warna', value: 'Hitam', price: 850000, inStock: true },
+      { id: 'v13', type: 'size', name: 'Ukuran', value: '40', price: 850000, inStock: true },
+      { id: 'v14', type: 'size', name: 'Ukuran', value: '41', price: 850000, inStock: true },
+      { id: 'v15', type: 'size', name: 'Ukuran', value: '42', price: 850000, inStock: true }
     ],
     specifications: {
       'Bahan Upper': 'Synthetic Leather',
@@ -142,8 +142,8 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 40,
     variants: [
-      { id: 'v16', type: 'color', name: 'Warna', value: 'Hitam', inStock: true },
-      { id: 'v17', type: 'color', name: 'Warna', value: 'Abu-abu', inStock: true }
+      { id: 'v16', type: 'color', name: 'Warna', value: 'Hitam', price: 350000, inStock: true },
+      { id: 'v17', type: 'color', name: 'Warna', value: 'Abu-abu', price: 350000, inStock: true }
     ],
     specifications: {
       'Kapasitas': '25 Liter',
@@ -175,8 +175,8 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 15,
     variants: [
-      { id: 'v18', type: 'color', name: 'Warna', value: 'Hitam', inStock: true },
-      { id: 'v19', type: 'color', name: 'Warna', value: 'Biru', inStock: true }
+      { id: 'v18', type: 'color', name: 'Warna', value: 'Hitam', price: 1200000, inStock: true },
+      { id: 'v19', type: 'color', name: 'Warna', value: 'Biru', price: 1200000, inStock: true }
     ],
     specifications: {
       'Movement': 'Quartz',
@@ -210,12 +210,12 @@ export const mockProducts: Product[] = [
     inStock: true,
     stockQuantity: 35,
     variants: [
-      { id: 'v20', type: 'color', name: 'Warna', value: 'Abu-abu', inStock: true },
-      { id: 'v21', type: 'color', name: 'Warna', value: 'Hitam', inStock: true },
-      { id: 'v22', type: 'color', name: 'Warna', value: 'Navy', inStock: true },
-      { id: 'v23', type: 'size', name: 'Ukuran', value: 'M', inStock: true },
-      { id: 'v24', type: 'size', name: 'Ukuran', value: 'L', inStock: true },
-      { id: 'v25', type: 'size', name: 'Ukuran', value: 'XL', inStock: true }
+      { id: 'v20', type: 'color', name: 'Warna', value: 'Abu-abu', price: 450000, inStock: true },
+      { id: 'v21', type: 'color', name: 'Warna', value: 'Hitam', price: 450000, inStock: true },
+      { id: 'v22', type: 'color', name: 'Warna', value: 'Navy', price: 450000, inStock: true },
+      { id: 'v23', type: 'size', name: 'Ukuran', value: 'M', price: 450000, inStock: true },
+      { id: 'v24', type: 'size', name: 'Ukuran', value: 'L', price: 460000, inStock: true },
+      { id: 'v25', type: 'size', name: 'Ukuran', value: 'XL', price: 470000, inStock: true }
     ],
     specifications: {
       'Bahan': 'Cotton Fleece 80%, Polyester 20%',
